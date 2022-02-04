@@ -13,6 +13,7 @@ module QiitaApp
       g.assets false
       g.helper false
       g.skip_routes true
+      g.test_framework false
       g.system_tests = nil
     end
   end
