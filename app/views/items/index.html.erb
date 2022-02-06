@@ -3,7 +3,20 @@
 <br>
 <div>
   <% @items.each do |item| %>
-    <p><%= link_to item.title, item.url, target: :_blank, rel: "noopener noreferrer" %></p>
+    <div>
+      <%= link_to "@#{item.user.name}", "https://qiita.com/#{item.user.name}", target: :_blank, rel: "noopener noreferrer" %>が<%= item.created_at.strftime("%Y年%m月%d日") %>に投稿
+    </div>
+    <h5><%= link_to item.title, item.url, target: :_blank, rel: "noopener noreferrer" %></h5>
+    <p>
+      タグ: 
+      <% item.tags.each do |tag| %>
+        <%= link_to "https://qiita.com/tags/#{tag.name}", target: :_blank, rel: "noopener noreferrer" do %>
+          <%= "#{tag.name}"%>
+        <% end %>
+      <% end %>
+      　
+      LGTM: <%= item.likes_count %>
+    </p>
   <% end %>
 </div>
 <br>
