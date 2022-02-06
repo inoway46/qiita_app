@@ -1,2 +1,10 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<br>
+<h2>Qiita人気記事一覧</h2>
+<br>
+<div>
+  <% @items.each do |item| %>
+    <p><%= link_to item.title, item.url, target: :_blank, rel: "noopener noreferrer" %></p>
+  <% end %>
+</div>
+<br>
+<%= paginate @items %>
