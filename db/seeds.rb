@@ -26,3 +26,4 @@ all_articles.each do |article|
     end
   end
 end
+p "#{Time.current}: DB更新処理が完了しました"
