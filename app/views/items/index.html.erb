@@ -1,23 +1,26 @@
 <br>
 <h2>Qiita人気記事一覧</h2>
 <br>
-<div>
-  <% @items.each do |item| %>
-    <div>
-      <%= link_to "@#{item.user.name}", "https://qiita.com/#{item.user.name}", target: :_blank, rel: "noopener noreferrer", style: "color:gray;" %>が<%= item.created_at.strftime("%Y年%m月%d日") %>に投稿
-    </div>
-    <h5><%= link_to item.title, item.url, target: :_blank, rel: "noopener noreferrer" %></h5>
-    <p>
-      タグ: 
-      <% item.tags.each do |tag| %>
-        <%= link_to "https://qiita.com/tags/#{tag.name}", target: :_blank, rel: "noopener noreferrer", style: "color:gray; font-size:0.9rem;" do %>
-          <i class="fas fa-tags"></i><%= "#{tag.name}"%>
-        <% end %>
+<%= search_form_for @q, url: root_path do |f| %>
+  <%= f.label :tags_name_cont, 'タグ名' %>
+  <%= f.search_field :tags_name_cont %>
+  <%= f.submit '検索' %>
+<% end %>
+<br>
+<% @items.each do |item| %>
+  <div>
+    <%= link_to "@#{item.user.name}", "https://qiita.com/#{item.user.name}", target: :_blank, rel: "noopener noreferrer", style: "color:gray;" %>が<%= item.created_at.strftime("%Y年%m月%d日") %>に投稿
+  </div>
+  <h5><%= link_to item.title, item.url, target: :_blank, rel: "noopener noreferrer" %></h5>
+  <p>
+    タグ:
+    <% item.tags.each do |tag| %>
+      <%= link_to controller: "items", action: "index", q: {tags_name_cont: "#{tag.name}"} do %>
+        <span style="color:gray; font-size:0.9rem;"><i class="fas fa-tags"></i><%= "#{tag.name}"%></span>
       <% end %>
-      　
-      LGTM: <%= item.likes_count %>
-    </p>
-  <% end %>
-</div>
+    <% end %>
+    <span style="margin-left: 20px;">LGTM: <%= item.likes_count %></span>
+  </p>
+<% end %>
 <br>
 <%= paginate @items %>
