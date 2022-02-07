@@ -2,9 +2,28 @@
 @import "rails_bootstrap_forms";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "items";
 
 body {
   background-color: #f6f6f4;
+}
+
+.qiita_nav_top {
+  height: 100px;
+  background-color: #59bb0c;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.qiita_nav_title {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.qiita_nav_title:hover {
+  color: white;
 }
 
 .container {
