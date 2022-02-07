@@ -1,24 +1,9 @@
-# README
+# こだわった点
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# データベース設計
 
-Things you may want to cover:
+* Tagモデルを新たに作成し、Itemモデルと関連付けを行うことでDBの正規化を行った
+# バッチ処理
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `seeds.rb`にバッチ処理を書くことで、`rails db:reset`コマンドのみでDB更新を行えるようにした
+* 21行目で、`User.find_or_create_by`とすることで、1回のバッチ処理で重複データが作成されないようにした
