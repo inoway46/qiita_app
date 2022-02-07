@@ -1,0 +1,45 @@
+h2 {
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.search_cancel_area {
+  margin-top: 5px;
+}
+
+.search_cancel {
+  color:gray;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.search_cancel:hover {
+  color: black;
+}
+
+.item_container {
+  padding: 20px;
+}
+
+.item_user {
+  padding-bottom: 5px;
+}
+
+.item_title {
+  color:#4aac00;
+  text-decoration: none;
+}
+
+.item_title:hover {
+  color:#59bb0c;
+  text-decoration: none;
+}
+
+.item_tags {
+  color:gray;
+  font-size:0.9rem;
+}
+
+.item_lgtm {
+  width: 1.4rem;
+}
