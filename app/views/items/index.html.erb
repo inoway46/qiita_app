@@ -3,11 +3,13 @@
   <%= f.search_field :tags_name_cont, placeholder: "タグ名を入力" %>
   <%= f.submit '検索' %>
 <% end %>
-<div class="search_cancel_area">
-  <%= link_to root_path, class:"search_cancel" do %>
-    <i class="fas fa-window-close"></i> 検索をクリア
-  <% end %>
-</div>
+<% if search_word_presend? %>
+  <div class="search_cancel_area">
+    <%= link_to root_path, class:"search_cancel" do %>
+      <i class="fas fa-window-close"></i> 検索をクリア
+    <% end %>
+  </div>
+<% end %>
 <div class="item_container">
   <% @items.each do |item| %>
     <div class="item_user">
